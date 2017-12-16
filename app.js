@@ -1,10 +1,10 @@
-const express = require('express');
-const path = require('path');
-const favicon = require('serve-favicon');
-const logger = require('morgan');
-const cookieParser = require('cookie-parser');
+const express    = require('express');
+const path       = require('path');
+const favicon    = require('serve-favicon');
+const logger     = require('morgan');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
+const mongoose   = require('mongoose');
+                   require('dotenv').config()
 mongoose.connect('mongodb://localhost/todolist'); //connect to database
 
 const index = require('./routes/index');
@@ -18,7 +18,6 @@ const app = express();
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);

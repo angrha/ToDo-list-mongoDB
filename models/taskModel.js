@@ -2,17 +2,17 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let taskSchema = mongoose.Schema({
-  author: {
-    type: Schema.Types.ObjectId,
-    ref: 'User'
+  author : {
+    type : Schema.Types.ObjectId,
+    ref : 'User'
   },
-  task: String,
-  completion: {
-    type: String,
-    enum: ['Pending', 'Completed'],
-    default: 'Pending'
+  task : String,
+  createdAt : new Date(),
+  completion : {
+    type : String,
+    enum : ['Pending', 'Completed'],
+    default : 'Pending'
   }
- 
 })
 
 const Task = mongoose.model('Task', taskSchema);
