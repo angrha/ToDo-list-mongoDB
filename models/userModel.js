@@ -13,6 +13,6 @@ const userSchema = new Schema({
   status : String
 })
 
-const User = mongoose.model('User', blogSchema);
+const User = mongoose.model('User', userSchema);
 
 module.exports = User
