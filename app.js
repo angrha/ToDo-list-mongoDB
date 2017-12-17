@@ -9,6 +9,8 @@ mongoose.connect('mongodb://localhost/todolist'); //connect to database
 
 const index = require('./routes/index');
 const users = require('./routes/users');
+const tasks = require('./routes/task');
+
 
 const app = express();
 
@@ -22,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/api/users', users);
+app.use('/api/tasks', tasks)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

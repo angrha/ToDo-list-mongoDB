@@ -10,7 +10,11 @@ const userSchema = new Schema({
     type :String,
     required : true
   },
-  status : String
+  status : String,
+  todoList : [{
+    type : Schema.Types.ObjectId,
+    ref : 'Task'
+  }]
 })
 
 const User = mongoose.model('User', userSchema);

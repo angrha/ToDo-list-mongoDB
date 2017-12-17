@@ -105,6 +105,7 @@ class UserController {
       }
 
       let payload = {
+        id       : user._id,
         username : user.username,
         status   : user.status
       }
@@ -113,6 +114,7 @@ class UserController {
         if(!err) {
           res.status(200).json({
             message : 'authentication valid!',
+            userId  : user._id,
             token   : token
           })
         }

@@ -6,8 +6,12 @@ let taskSchema = mongoose.Schema({
     type : Schema.Types.ObjectId,
     ref : 'User'
   },
+  title : String,
   task : String,
-  createdAt : new Date(),
+  createdAt : {
+    type : Date,
+    default : new Date()
+  },
   completion : {
     type : String,
     enum : ['Pending', 'Completed'],
@@ -17,4 +21,4 @@ let taskSchema = mongoose.Schema({
 
 const Task = mongoose.model('Task', taskSchema);
 
-module.exports = User
+module.exports = Task
