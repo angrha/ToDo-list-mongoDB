@@ -7,6 +7,7 @@ const salt = bcrypt.genSaltSync(10);
 class UserController {
   static findAll(req, res) {
     User.find()
+    .populate('todoList')
     .then( users => {
       res.status(200).json({
         message : 'list all user',
